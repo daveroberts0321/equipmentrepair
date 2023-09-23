@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Repair Tracker/ Home{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Home</h1>
+      <p>
+        Lorem ips
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Client List</h2>
+      <a href="/addclient">Add a Client</a>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th>Address</th>
+            <th>Phone</th>           
+          </tr>
+        </thead>
+        <tbody>
+          {% for client in clients %}
+          <tr>
+            <td><a href="clientequipment/{{client.id}}">{{client.name}}</a></td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.phone }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

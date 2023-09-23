@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Repair Tracker/ Equipment{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>repairs for {{client.name}} </h1>
+      <p>
+        Listed Repairs for {{client.name}}/ {{equipment.name}}
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Equipment List</h2>
+      <a href="/">Home</a>
+      <a href="/addequipment">Add Repair to {{equipment.name}}</a>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Equipment</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in repairs %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+```
