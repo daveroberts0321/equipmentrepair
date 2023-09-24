@@ -6,7 +6,13 @@ from .models import Clients, Equipment, Repairs
 def home(request):
     # get client list from database
     clients = Clients.objects.all()
-    context = {'clients': clients}   
+    #last 10 repairs
+    repairs = Repairs.objects.all().order_by('-updated')[:10]
+
+    context = {
+        'clients': clients,
+        'repairs': repairs,
+        }   
     
     return render(request, 'home.html', context)
 

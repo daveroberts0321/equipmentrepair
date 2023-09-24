@@ -37,6 +37,28 @@
         </tbody>
       </table>
     </div>
+    <!--Last 10 Repairs-->
+    <div class="col-md-12">
+      <h2>Last 10 Repairs, All Clients</h2>      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th>Equipment </th>
+            <th>Repair</th>           
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in repairs %}
+          <tr>
+            <td>{{item.equipment.client.name}}</td>
+            <td>{{ item.equipment.name }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
